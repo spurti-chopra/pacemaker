@@ -5,7 +5,7 @@ language: c
 os: power
 compiler:
  - gcc
- - clang
+# - clang
 # - cov-build
 
 env:
