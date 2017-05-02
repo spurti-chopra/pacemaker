@@ -28,17 +28,12 @@ env:
 
     # -- END Coverity Scan ENV
 
-# sudo add-apt-repository ppa:hotot-team
 before_install:
- #- sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu/ trusty main"
  - sudo apt-get update -qq -y
  - sudo apt-get install git
 
 install:
- - sudo apt-get install -y gcc
- - sudo apt-get install -y -qq automake autoconf chrpath libglib2.0-dev perl net-tools python libtool libxml2-dev bison flex uuid-dev libbz2-dev zlib1g-dev libltdl3-dev libgnutls-dev python-dev libpam0g-dev libncurses5-dev corosync-dev libxslt1-dev libdbus-1-dev
- - sudo apt-get install -y -qq cluster-glue-dev heartbeat-dev libheartbeat2-dev 
- - sudo apt-get install -y -qq libqb-dev
+ - sudo apt-get install -y apt-utils build-essential gcc g++ llvm autoconf clang corosync-dev libcorosync-common-dev cppcheck crmsh libbz2-dev libcfg-dev libcpg-dev libdbus-1-dev libtool libxml2-dev libxslt1-dev git libglib2.0-dev make pkg-config uuid-dev libcmap-dev libquorum-dev libmcpp-dev 
 
 before_script:
 # Save and restore CC so that ./configure can pass
@@ -53,9 +48,6 @@ script:
 - if test ${CC} != cov-build; then make && ./BasicSanity.sh -V; fi
 - if test ${CC} = cov-build; then export CC=gcc; bash ./travisci_build_coverity_scan.sh; fi
 
-#after_script:
-#after_success:
-
 after_failure:
  - lsb_release -a
  - sudo cat /etc/apt/sources.list
@@ -64,10 +56,9 @@ after_failure:
  - cat include/config.h
 
 notifications:
-  irc: "irc.freenode.org#pcmk"
   email:
     recipients:
-      - andrew@beekhof.net
+      - spurti@us.ibm.com
 
 # whitelist
 branches:
