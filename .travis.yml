@@ -33,7 +33,7 @@ before_install:
  - sudo apt-get install git
 
 install:
- - sudo apt-get install -y apt-utils build-essential gcc g++ llvm autoconf clang corosync-dev libcorosync-common-dev cppcheck crmsh libbz2-dev libcfg-dev libcpg-dev libdbus-1-dev libtool libxml2-dev libxslt1-dev git libglib2.0-dev make pkg-config uuid-dev libcmap-dev libquorum-dev libmcpp-dev 
+ - sudo apt-get install -y apt-utils build-essential gcc g++ llvm autoconf clang corosync-dev libcorosync-common-dev cppcheck crmsh libbz2-dev libcfg-dev libcpg-dev libdbus-1-dev libtool libxml2-dev libxslt1-dev git libglib2.0-dev make pkg-config uuid-dev libcmap-dev libquorum-dev libmcpp-dev python-systemd 
 
 before_script:
 # Save and restore CC so that ./configure can pass
