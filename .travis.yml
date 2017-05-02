@@ -32,6 +32,7 @@ env:
 before_install:
  #- sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu/ trusty main"
  - sudo apt-get update -qq -y
+ - sudo apt-get install git
 
 install:
  - sudo apt-get install -y gcc
